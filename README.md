@@ -22,3 +22,33 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Question-Answer DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|name|string|null: false, index: true|
+### Association
+- has_many :questions
+- has_many :answers
+
+## questionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|user_id|string|null: false, foreign_key: true|
+### Association
+- has_many :answers
+- belongs_to :user
+
+## Answersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|user_id|string|null: false, foreign_key: true|
+|question_id|string|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :question
