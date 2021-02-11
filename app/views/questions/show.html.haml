@@ -1,2 +1,10 @@
-%h1 Questions#show
-%p Find me in app/views/questions/show.html.haml
+.row
+  .col-md-12
+    %h2= @question.title
+    Content:
+    = @question.content
+    %br
+    Name:
+    = @question.name
+    %hr
+      = link_to '> Home', root_path

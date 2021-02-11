@@ -1,2 +1,19 @@
-%h1 Questions#index
-%p Find me in app/views/questions/index.html.haml
+%h2 Questions
+.row
+  .col-md-12
+    %table.table.table-striped
+      %thead.thead-light
+        %tr
+          %th ID
+          %th Title
+          %th Menu
+      %tbody
+        - @questions.each do |question|
+          %tr
+            %td= question.id
+            %td= link_to question.title, question_path(question)
+            %td
+              = link_to 'Edit', edit_question_path(question)
+              %br
+              = link_to 'Delete', question_path(question), method: :delete, data:{ confirm: 'Are you sure?'}
+    = link_to 'New question', new_question_path

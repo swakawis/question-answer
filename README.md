@@ -37,7 +37,8 @@ Things you may want to cover:
 ## questionsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|title|string|null: false|
+|content|text|null: false|
 |user_id|string|null: false, foreign_key: true|
 ### Association
 - has_many :answers
@@ -46,7 +47,7 @@ Things you may want to cover:
 ## Answersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|text|text|null: false|
 |user_id|string|null: false, foreign_key: true|
 |question_id|string|null: false, foreign_key: true|
 ### Association
